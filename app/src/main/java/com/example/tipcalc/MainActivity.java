@@ -11,6 +11,7 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
     double sahjk = 34.0;
+    double gdsg = 35.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
