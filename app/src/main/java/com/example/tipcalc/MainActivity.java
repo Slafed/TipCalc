@@ -26,16 +26,21 @@ public class MainActivity extends AppCompatActivity {
         EditText bill = (EditText) findViewById(R.id.billEditView);
         EditText tip = (EditText) findViewById(R.id.tipEditView);
         TextView result = (TextView) findViewById(R.id.resultTextView);
+        try {
+            // get the values from the EditText boxes and convert them to int data types
+            double num1 = Double.parseDouble(bill.getText().toString());
+            double num2 = Double.parseDouble(tip.getText().toString());
+            num2 = num2 / 100;
 
-        // get the values from the EditText boxes and convert them to int data types
-        double num1 = Double.parseDouble(bill.getText().toString());
-        double num2 = Double.parseDouble(tip.getText().toString());
-        num2 = num2/100;
+            // multiply both ints and format
+            double product = num1 * num2;
+            double total = num1 + product;
 
-        // multiply both ints and format
-       double product = num1*num2;
-
-        // set the text for the answer
-        result.setText("Tip: " + df.format(product));
+            // set the text for the answer
+            result.setText("Tip: " + df.format(product) + "\n" + "Total: " + df.format(total));
+        }
+        catch(Exception e){
+            result.setText("incorrect input");
+        }
     }
 }
